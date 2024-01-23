@@ -1,5 +1,5 @@
 const express = require('express');
-const fs = require('fs/promises'); 
+const fs = frequire('fs/promises'); 
 const ProductManager = require('./ProductManager'); 
 
 const app = express();
@@ -40,5 +40,5 @@ app.get('/products/:pid', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Servidor escuchando en http://localhost:${8080}`);
+    console.log(`Iniciando servidor en http://localhost:${8080}`);
 });

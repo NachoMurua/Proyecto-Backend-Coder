@@ -14,7 +14,7 @@ class ProductManager {
             this.products = JSON.parse(data);
             this.productIdCount = this.products.length > 0 ? Math.max(...this.products.map(product => product.id)) + 1 : 1;
         } catch (error) {
-            console.error('Error al cargar productos desde el archivo:', error.message);
+            console.error('Error al cargar productos:', error.message);
         }
     }
 
@@ -22,13 +22,13 @@ class ProductManager {
         try {
             await fs.writeFile(this.filePath, JSON.stringify(this.products, null, 2), 'utf8');
         } catch (error) {
-            console.error('Error al guardar productos en el archivo:', error.message);
+            console.error('Error al guardar productos:', error.message);
         }
     }
 
     async addProduct(title, description, price, thumbnail, code, stock) {
         if (!title || !description || !price || !thumbnail || !code || !stock) {
-            console.warn('Los campos son obligatorios');
+            console.warn('Campos obligatorios');
             return;
         }
 
