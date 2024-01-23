@@ -1,3 +1,4 @@
+//Ejercicio del primer desafio
 class ProductManager {
     constructor() {
         this.products = [];
