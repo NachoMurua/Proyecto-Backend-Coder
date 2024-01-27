@@ -1,5 +1,5 @@
 const express = require('express');
-const fs = frequire('fs/promises'); 
+const fs = require('fs/promises'); 
 const ProductManager = require('./ProductManager'); 
 
 const app = express();
@@ -11,15 +11,15 @@ app.get('/products', async (req, res) => {
     const limit = parseInt(req.query.limit);
 
     try {
-        const products = await productManager.getAllProducts();
+        const products = await productManager.getProducts();
 
         if (limit) {
-            res.json({ products: products.slice(0, limit) });
+            res.json(products.slice(0, limit));
         } else {
-            res.json({ products });
+            res.json(products);
         }
     } catch (error) {
-        res.status(500).json({ error: 'Error' });
+        res.status(500).json({ error: 'Error del servidor' });
     }
 });
 
@@ -30,7 +30,7 @@ app.get('/products/:pid', async (req, res) => {
         const product = await productManager.getProductById(productId);
 
         if (product) {
-            res.json({ product });
+            res.json(product);
         } else {
             res.status(404).json({ error: 'Producto no encontrado' });
         }
@@ -42,3 +42,6 @@ app.get('/products/:pid', async (req, res) => {
 app.listen(port, () => {
     console.log(`Iniciando servidor en http://localhost:${8080}`);
 });
+
+
+
