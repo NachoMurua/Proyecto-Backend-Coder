@@ -2,6 +2,7 @@
     {
         "id": 1,
         "title": "Nike Airmax",
+        "status": true,
         "price": 150.000,
         "description": "Zapatillas nike air max 1",
         "thumbnail": "https://sneakernews.com/wp-content/uploads/2021/10/Nike-Air-Max-90-NN-White-DH8010-100-4.jpg?w=1140",
@@ -11,6 +12,7 @@
     {
         "id": 2,
         "title": "Zapatillas Adidas",
+        "status": true,
         "price": 170.000,
         "description": "Zapatillas adidas ozweego white",
         "thumbnail": "https://untiedstore.com.ar/wp-content/uploads/2021/05/OZWEEGO-2-1.jpeg",
@@ -20,6 +22,7 @@
     {
         "id": 3,
         "title": "Zapatillas Puma",
+        "status": true,
         "price": 120.000,
         "description": "Zapatillas Puma Slipstream",
         "thumbnail": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_480,h_480/global/387544/02/sv01/fnd/ARG/fmt/png",
@@ -29,6 +32,7 @@
     {
         "id": 4,
         "title": "Nike Airforce 1",
+        "status": true,
         "price": 120.000,
         "description": "Zapatillas Nike Airforce 1",
         "thumbnail": "https://i.ebayimg.com/images/g/JesAAOSwtqxjNFaR/s-l1600.jpg",
@@ -38,6 +42,7 @@
     {
         "id": 5,
         "title": "Adidas Forum Low",
+        "status": true,
         "price": 170.000,
         "description": "Zapatillas Adidas forum low",
         "thumbnail": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/be267c0d2b55486f98beacfd01049bfc_9366/Zapatillas_Forum_Low_Blanco_FY7978_01_standard.jpg",
@@ -47,6 +52,7 @@
     {
         "id": 6,
         "title": "Nike 270 Epic React",
+        "status": true,
         "price": 145.000,
         "description": "Zapatillas Nike 270 Epic React",
         "thumbnail": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/pliwpmdl9klj8ev8dhe9/scarpa-air-max-270-react-winter-s8hMS8.jpg",
@@ -56,6 +62,7 @@
     {
         "id": 7,
         "title": "Nike Uptempo",
+        "status": false,
         "price": 210.000,
         "description": "Zapatillas Nike Uptempo",
         "thumbnail": "https://www.moov.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw6ddb9c87/products/NI_921948-003/NI_921948-003-1.JPG",
@@ -65,6 +72,7 @@
     {
         "id": 8,
         "title": "SB low Dunk",
+        "status": true,
         "price": 110.000,
         "description": "Zapatillas SB low Dunk",
         "thumbnail": "https://nikearprod.vtexassets.com/arquivos/ids/686217-800-800?v=638225200306770000&width=800&height=800&aspect=true",
@@ -74,6 +82,7 @@
     {
         "id": 9,
         "title": "Adidas Alphaboost",
+        "status": true,
         "price": 160.000,
         "description": "Zapatillas Adidas Alphaboost",
         "thumbnail": "https://www.tripstore.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/I/E/IE7269_0.jpg",
@@ -83,6 +92,7 @@
     {
         "id": 10,
         "title": "Adidas Ozelle",
+        "status": false,
         "price": 130.000,
         "description": "Zapatillas Adidas Ozelle",
         "thumbnail": "https://assets.adidas.com/images/w_600,f_auto,q_auto/ca7424d01f334b0ebced7bc76d8bfd55_9366/Zapatillas_Ozelle_Cloudfoam_Violeta_IF2853_01_standard.jpg",
