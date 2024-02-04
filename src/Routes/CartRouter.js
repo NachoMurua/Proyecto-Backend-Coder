@@ -21,25 +21,7 @@ router.post('/:cartId/products/:productId', async (req, res) => {
     const quantity = parseInt(req.body.quantity);
 
     try {
-        const result = await cartManager.addProductToCart(cartId, productId, quantity);
-
-        if (result.success) {
-            res.json({ message: result.message });
-        } else {
-            res.status(400).json({ error: result.message });
-        }
-    } catch (error) {
-        res.status(500).json({ error: 'Error del servidor' });
-    }
-});
-
-router.put('/:cartId/products/:productId', async (req, res) => {
-    const cartId = req.params.cartId;
-    const productId = req.params.productId;
-    const quantity = parseInt(req.body.quantity);
-
-    try {
-        const result = await cartManager.updateProductQuantity(cartId, productId, quantity);
+        const result = await cartManager.addOrUpdateProductInCart(cartId, productId, quantity);
 
         if (result.success) {
             res.json({ message: result.message });

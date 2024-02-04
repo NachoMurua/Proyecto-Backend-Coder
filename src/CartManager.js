@@ -38,7 +38,7 @@ class CartManager {
         }
     }
 
-    async addProductToCart(cartId, productId, quantity) {
+    async addOrUpdateProductInCart(cartId, productId, quantity) {
         const cartIndex = this.carts.findIndex(c => c.id === cartId);
 
         if (cartIndex !== -1) {
@@ -52,7 +52,7 @@ class CartManager {
             }
 
             await this.saveToFile();
-            return { success: true, message: 'Producto agregado al carrito' };
+            return { success: true, message: 'Producto agregado y/o actualizado en el carrito' };
         } else {
             console.error('Error al entrar al carrito');
             return { success: false, message: 'Error al agregar producto al carrito' };
