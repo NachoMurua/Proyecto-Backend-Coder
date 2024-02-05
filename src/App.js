@@ -85,7 +85,7 @@ app.delete('/products/:pid', async (req, res) => {
 
 app.use('/api/carts', cartRouter);
 
-app.listen(port, () => {
+app.listen(8080, () => {
     console.log(`Iniciando servidor en http://localhost:${8080}`); 
 });
 

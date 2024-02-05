@@ -15,7 +15,7 @@ router.get('/:cartId/products', async (req, res) => {
     }
 });
 
-router.post('/:cartId/products/:productId', async (req, res) => {
+router.post('/:cartId/products/:addProduct', async (req, res) => {
     const cartId = req.params.cartId;
     const productId = req.params.productId;
     const quantity = parseInt(req.body.quantity);
@@ -33,12 +33,26 @@ router.post('/:cartId/products/:productId', async (req, res) => {
     }
 });
 
-router.delete('/:cartId/products/:productId', async (req, res) => {
+router.delete('/:cartId/products/:removeProduct', async (req, res) => {
     const cartId = req.params.cartId;
     const productId = req.params.productId;
 
     try {
         const result = await cartManager.removeProductFromCart(cartId, productId);
+
+        if (result.success) {
+            res.json({ message: result.message });
+        } else {
+            res.status(400).json({ error: result.message });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Error del servidor' });
+    }
+});
+
+router.post('/create', async (req, res) => {
+    try {
+        const result = await cartManager.createCart();
 
         if (result.success) {
             res.json({ message: result.message });
