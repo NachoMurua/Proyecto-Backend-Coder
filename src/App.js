@@ -88,7 +88,3 @@ app.use('/api/carts', cartRouter);
 app.listen(8080, () => {
     console.log(`Iniciando servidor en http://localhost:${8080}`); 
 });
-
-
-
-

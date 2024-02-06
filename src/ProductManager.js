@@ -53,18 +53,6 @@ class ProductManager {
         console.log('Producto agregado:', newProduct);
     }
 
-    async updateProduct(productId, updatedProduct) {
-        const index = this.products.findIndex(product => product.id === productId);
-
-        if (index !== -1) {
-            this.products[index] = { ...this.products[index], ...updatedProduct };
-            await this.saveToFile();
-            console.log('Producto actualizado:', this.products[index]);
-        } else {
-            console.error('Producto no encontrado');
-        }
-    }
-
     async deleteProduct(productId) {
         this.products = this.products.filter(product => product.id !== productId);
         await this.saveToFile();
@@ -73,16 +61,6 @@ class ProductManager {
 
     getProducts() {
         return this.products;
-    }
-
-    async getProductById(id) {
-        const product = this.products.find(product => product.id === id);
-        if (product) {
-            return product;
-        } else {
-            console.error('Producto no encontrado');
-            return null;
-        }
     }
 }
 

@@ -1,8 +1,5 @@
 const fs = require('fs/promises');
-
-function generateUniqueId() {
-    return Math.random().toString(36).substr(2, 9);
-}
+const { v4: uuidv4 } = require('uuid');
 
 class CartManager {
     constructor(filePath) {
@@ -61,7 +58,7 @@ class CartManager {
 
     async createCart() {
         const newCart = {
-            id: generateUniqueId(),
+            id: uuidv4(),
             products: [],
         };
 

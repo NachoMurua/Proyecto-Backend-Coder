@@ -1,5 +1,6 @@
 const express = require('express');
 const CartManager = require('../CartManager');
+const io = require('../socket');
 
 const router = express.Router();
 const cartManager = new CartManager();
@@ -15,7 +16,7 @@ router.get('/:cartId/products', async (req, res) => {
     }
 });
 
-router.post('/:cartId/products/:addProduct', async (req, res) => {
+router.post('/:cartId/products/:productId', async (req, res) => {
     const cartId = req.params.cartId;
     const productId = req.params.productId;
     const quantity = parseInt(req.body.quantity);
@@ -24,6 +25,7 @@ router.post('/:cartId/products/:addProduct', async (req, res) => {
         const result = await cartManager.addOrUpdateProductInCart(cartId, productId, quantity);
 
         if (result.success) {
+            io.emit('cartUpdate', { cartId, products: await cartManager.getCartProducts(cartId) }); // Emitir evento WebSocket cuando se actualiza el carrito
             res.json({ message: result.message });
         } else {
             res.status(400).json({ error: result.message });
@@ -33,7 +35,7 @@ router.post('/:cartId/products/:addProduct', async (req, res) => {
     }
 });
 
-router.delete('/:cartId/products/:removeProduct', async (req, res) => {
+router.delete('/:cartId/products/:productId', async (req, res) => {
     const cartId = req.params.cartId;
     const productId = req.params.productId;
 
@@ -41,6 +43,7 @@ router.delete('/:cartId/products/:removeProduct', async (req, res) => {
         const result = await cartManager.removeProductFromCart(cartId, productId);
 
         if (result.success) {
+            io.emit('cartUpdate', { cartId, products: await cartManager.getCartProducts(cartId) }); // Emitir evento WebSocket cuando se actualiza el carrito
             res.json({ message: result.message });
         } else {
             res.status(400).json({ error: result.message });

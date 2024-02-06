@@ -1,5 +1,6 @@
 const express = require('express');
 const ProductManager = require('../ProductManager');
+const io = require('../socket'); 
 
 const router = express.Router();
 const productManager = new ProductManager();
@@ -9,6 +10,8 @@ router.post('/products', async (req, res) => {
 
     try {
         await productManager.addProduct(title, description, price, thumbnail, code, stock);
+        const newProduct = await productManager.getProductByCode(code); 
+        io.emit('productAdded', newProduct); 
         res.json({ message: 'Producto creado correctamente' });
     } catch (error) {
         console.error('Error al crear el producto:', error.message);
