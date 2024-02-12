@@ -1,3 +1,5 @@
 #Archivos ignorados 
 
 node_modules/
+
+src/
